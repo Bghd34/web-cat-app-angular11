@@ -1,29 +1,28 @@
 {
-    "products": [
-
-        {
-            "id": 1,
-            "name": "computer",
-            "price": 1300,
-            "quantity": 600,
-            "selected": true,
-            "available": true
-        },
-        {
-            "id": 2,
-            "name": "printer",
-            "price": 300,
-            "quantity": 100,
-            "selected": true,
-            "available": true
-        },
-        {
-            "id": 3,
-            "name": "smatphone",
-            "price": 1200,
-            "quantity": 100,
-            "selected": false,
-            "available": true
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "computer",
+      "price": 1300,
+      "quantity": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "printer",
+      "price": 300,
+      "quantity": 100,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "smatphone",
+      "price": 1200,
+      "quantity": 100,
+      "selected": false,
+      "available": true
+    }
+  ]
 }
