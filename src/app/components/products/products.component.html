@@ -12,19 +12,33 @@
     </ul>
 </nav>
 
+<ng-container *ngIf="products | async as result"  [ngSwitch]="result.dataState">
+    <ng-container *ngSwitchDefault="DataStateEnum.LOADING">
+        Loading ...
+    </ng-container>
+    
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+        <table class="table">
+            <tr>
+                <th>ID</th><th>Name</th><th>Price</th><th>Quantity</th><th>Selected</th><th>Available</th>
+            </tr>
+            <tr *ngFor="let p of result.data">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.selected}}</td>
+                <td>{{p.available}}</td>
+            </tr>
+        </table>
+    </ng-container>
+    
+    <ng-container *ngSwitchDefault="DataStateEnum.ERROR">
+        <div class="alert-danger">
+            {{result.errorMessage}}
+        </div>
+    </ng-container>
 
-<div class="container" *ngIf="products">
-    <table class="table">
-        <tr>
-            <th>ID</th><th>Name</th><th>Price</th><th>Quantity</th><th>Selected</th><th>Available</th>
-        </tr>
-        <tr *ngFor="let p of products | async">
-            <td>{{p.id}}</td>
-            <td>{{p.name}}</td>
-            <td>{{p.price}}</td>
-            <td>{{p.quantity}}</td>
-            <td>{{p.selected}}</td>
-            <td>{{p.available}}</td>
-        </tr>
-    </table>
-</div>
+</ng-container>
+
+

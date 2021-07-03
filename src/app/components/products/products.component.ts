@@ -12,6 +12,7 @@ import { AppDataState, DataStateEnum } from '../../state/product.state';
 })
 export class ProductsComponent implements OnInit {
   products:Observable<AppDataState<Product[]>> | null = null;
+  readonly DataStateEnum = DataStateEnum;
 
   constructor(private productService:ProductsService) { }
 
