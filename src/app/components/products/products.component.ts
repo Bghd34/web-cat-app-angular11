@@ -27,4 +27,20 @@ export class ProductsComponent implements OnInit {
     );
   }
 
+  onGetSelectedProducts() {
+    this.products = this.productService.getSelectedProducts().pipe(
+      map(data => ({dataState:DataStateEnum.LOADED, data:data})),
+      startWith({dataState:DataStateEnum.LOADING}),
+      catchError(err => of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
+    );
+  }
+
+  onGetAvailableProducts() {
+    this.products = this.productService.getAvailaleProducts().pipe(
+      map(data => ({dataState:DataStateEnum.LOADED, data:data})),
+      startWith({dataState:DataStateEnum.LOADING}),
+      catchError(err => of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
+    );
+  }
+
 }
