@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product.model';
 import { ProductsService } from '../../services/products.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import {map, catchError,startWith} from 'rxjs/operators';
+import { AppDataState, DataStateEnum } from '../../state/product.state';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products:Observable<Product[]> | null = null;
+  products:Observable<AppDataState<Product[]>> | null = null;
 
   constructor(private productService:ProductsService) { }
 
@@ -17,7 +19,11 @@ export class ProductsComponent implements OnInit {
   }
 
   onGetAllProducts() {
-    this.products = this.productService.getAllProducts();
+    this.products = this.productService.getAllProducts().pipe(
+      map(data => ({dataState:DataStateEnum.LOADED, data:data})),
+      startWith({dataState:DataStateEnum.LOADING}),
+      catchError(err => of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
+    );
   }
 
 }
