@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <ul class="navbar navbar-nav ">
         <li>
-            <button onclick="onGetAllProducts()" class="btn btn-outline-info ml-2">All</button>  
+            <button (click)="onGetAllProducts()" class="btn btn-outline-info ml-2">All</button>  
         </li>
         <li>
             <button class="btn btn-outline-info ml-2">Selected</button>
@@ -11,6 +11,7 @@
         </li>
     </ul>
 </nav>
+
 
 <div class="container" *ngIf="products">
     <table class="table">
