@@ -43,4 +43,21 @@ export class ProductsComponent implements OnInit {
     );
   }
 
+  onSearch(keyword:any) {
+
+    console.log(keyword);
+    
+    
+    this.products = this.productService.searchProducts("http://localhost:5000/products?name_like="+keyword).pipe(
+      map(data => {
+        console.log(data);
+        return ({dataState:DataStateEnum.LOADED, data:data});
+      }),
+      startWith({dataState:DataStateEnum.LOADING}),
+      catchError(err => of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
+    );
+    
+  }
+  
+
 }

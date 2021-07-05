@@ -14,8 +14,8 @@
         <li>
             <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
                 <div class="form-group">
-                    <input type="text" >
-                    <button class="btn btn-outline-info">
+                    <input type="text"  name="keyword" ngModel>
+                    <button class="btn btn-sm btn-outline-info">
                         <span class="fa fa-search"></span>
                     </button>
                 </div>
