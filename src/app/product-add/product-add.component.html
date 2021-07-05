@@ -1,0 +1,29 @@
+<div class="container">
+    <for [formGroup]="productFormGroup">
+        <div class=form-group>
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+        </div>
+        
+        <div class=form-group>
+            <label for="price">Price</label>
+            <input type="text" id="price" class="form-control" formControlName="price">
+        </div>
+
+        <div class=form-group>
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" class="form-control" formControlName="quantity">
+        </div>
+
+        <div class=form-group>
+            <label for="selected">Selected</label>
+            <input type="checkbox" id="selected" class="ml-2" formControlName="selected">
+        </div>
+
+        <div class=form-group>
+            <label for="available">Available</label>
+            <input type="checkbox" id="available" class="ml-2" formControlName="available">
+        </div>
+        <button class="btn btn-success">Save</button>
+    </form>
+</div>

@@ -5,7 +5,7 @@
       "name": "computer",
       "price": 1300,
       "quantity": 600,
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
@@ -13,7 +13,7 @@
       "name": "printer",
       "price": 300,
       "quantity": 100,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -23,13 +23,6 @@
       "available": "false",
       "id": 3,
       "selected": true
-    },
-    {
-      "name": "tv",
-      "price": "6000",
-      "quantity": "60",
-      "available": "true",
-      "id": 4
     }
   ]
 }

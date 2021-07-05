@@ -4,6 +4,7 @@ import { ProductsService } from '../../services/products.service';
 import { Observable, of } from 'rxjs';
 import {map, catchError,startWith} from 'rxjs/operators';
 import { AppDataState, DataStateEnum } from '../../state/product.state';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,7 @@ export class ProductsComponent implements OnInit {
   products:Observable<AppDataState<Product[]>> | null = null;
   readonly DataStateEnum = DataStateEnum;
 
-  constructor(private productService:ProductsService) { }
+  constructor(private productService:ProductsService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -67,11 +68,21 @@ export class ProductsComponent implements OnInit {
 
   onDelete(p:Product) {
     console.log(p);
-    this.productService.deleteProduct(p)
+    let v = confirm("Etes vous sure ?")
+    if(v==true) {
+      this.productService.deleteProduct(p)
     .subscribe(data => {
       this.onGetAllProducts();
+    }, err =>  {
+      console.log(err);
     })
   }
+    }
+
+    onNewProduct() {
+      this.router.navigateByUrl("newProduct");
+    }
+    
   
 
 }

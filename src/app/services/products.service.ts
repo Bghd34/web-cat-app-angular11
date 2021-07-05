@@ -10,7 +10,8 @@ export class ProductsService {
     }
 
     getAllProducts():Observable<Product[]>{
-        let host = (Math.random()<0.2 ? environment.host1 : environment.host);
+        //let host = (Math.random()<0.2 ? environment.host1 : environment.host);
+        let host = environment.host;
         return this.http.get<Product[]>(host+"/products");
     }
 
