@@ -1,5 +1,6 @@
-<div class="container">
-    <for [formGroup]="productFormGroup">
+<div class="container" *ngIf="productFormGroup">
+   
+    <form [formGroup]="productFormGroup">
         <div class=form-group>
             <label for="name">Name</label>
             <input type="text" id="name" class="form-control" formControlName="name">
@@ -22,8 +23,8 @@
 
         <div class=form-group>
             <label for="available">Available</label>
-            <input type="checkbox" id="available" class="ml-2" formControlName="available">
+            <input type="checkbox" id="available" class="ml-2"  formControlName="available">
         </div>
-        <button class="btn btn-success">Save</button>
+        <button class="btn btn-success" (click)="onSaveProduct()">Save</button>
     </form>
 </div>
