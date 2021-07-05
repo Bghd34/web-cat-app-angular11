@@ -43,19 +43,25 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-  onSearch(keyword:any) {
-
-    console.log(keyword);
+  onSearch(dataForm:any) {
     
-    
-    this.products = this.productService.searchProducts("http://localhost:5000/products?name_like="+keyword).pipe(
+    this.products = this.productService.searchProducts(dataForm.keyword).pipe(
       map(data => {
-        console.log(data);
+        //console.log(data);
         return ({dataState:DataStateEnum.LOADED, data:data});
       }),
       startWith({dataState:DataStateEnum.LOADING}),
       catchError(err => of({dataState:DataStateEnum.ERROR, errorMessage:err.message}))
     );
+    
+  }
+
+  onSelect(p:Product) {
+    console.log(p.selected);
+    this.productService.selectProducts(p)
+    .subscribe(data => {
+      p.selected=data.selected;
+    });
     
   }
   

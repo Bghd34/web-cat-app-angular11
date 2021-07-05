@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <ul class="navbar navbar-nav ">
         <li>
-            <button (click)="onGetAllProducts()" class="btn btn-outline-info ml-2">All</button>  
+            <button (click)="onGetAllProducts()" class="btn btn-sm btn-outline-info ml-2">All</button>  
         </li>
         <li>
-            <button (click)="onGetSelectedProducts()" class="btn btn-outline-info ml-2">Selected</button>
+            <button (click)="onGetSelectedProducts()" class="btn btn-sm btn-outline-info ml-2">Selected</button>
         </li>
         <li>
-            <button (click)="onGetAvailableProducts()" class="btn btn-outline-info ml-2">Available</button>
+            <button (click)="onGetAvailableProducts()" class="btn btn-sm btn-outline-info ml-2">Available</button>
         </li>
     </ul>
     <ul class="navbar navbar-nav ml-auto">
         <li>
-            <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+            <form #f="ngForm" (ngSubmit)="onSearch(f.value)" class="form-inline">
                 <div class="form-group">
                     <input type="text"  name="keyword" ngModel>
-                    <button class="btn btn-sm btn-outline-info">
+                    <button class="btn btn-sm btn-outline-info ml-2">
                         <span class="fa fa-search"></span>
                     </button>
                 </div>
@@ -43,6 +43,12 @@
                     <td>{{p.quantity}}</td>
                     <td>{{p.selected}}</td>
                     <td>{{p.available}}</td>
+                    <td>
+                        <button (click)="onSelect(p)" [ngClass]="p.selected ? 'btn btn-sm btn-success' : 'btn btn-sm btn-danger' ">
+                            <span *ngIf="p.selected">Unselected</span>
+                            <span *ngIf="!p.selected">Selected</span>
+                        </button>
+                    </td>
                 </tr>
             </table>
         </ng-container>

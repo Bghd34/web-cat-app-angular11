@@ -21,7 +21,7 @@
       "name": "smatphone",
       "price": 1200,
       "quantity": 100,
-      "selected": false,
+      "selected": true,
       "available": true
     }
   ]
