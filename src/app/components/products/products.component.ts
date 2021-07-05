@@ -64,6 +64,14 @@ export class ProductsComponent implements OnInit {
     });
     
   }
+
+  onDelete(p:Product) {
+    console.log(p);
+    this.productService.deleteProduct(p)
+    .subscribe(data => {
+      this.onGetAllProducts();
+    })
+  }
   
 
 }

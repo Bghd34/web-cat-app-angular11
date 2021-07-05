@@ -49,6 +49,11 @@
                             <span *ngIf="!p.selected">Selected</span>
                         </button>
                     </td>
+                    <td>
+                        <button (click)="onDelete(p)" class="btn btn-sm btn-danger">
+                            <span class="fa fa-trash-o"> delete</span>
+                        </button>
+                    </td>
                 </tr>
             </table>
         </ng-container>

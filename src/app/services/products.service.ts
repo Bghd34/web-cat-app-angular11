@@ -36,6 +36,11 @@ export class ProductsService {
         return this.http.put<Product>(host+"/products/"+product.id,product);
     }
 
+    deleteProduct(product:Product):Observable<void>{
+        let host = environment.host;
+        return this.http.delete<void>(host+"/products/"+product.id);
+    }
+
     
 
 }

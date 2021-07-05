@@ -17,12 +17,19 @@
       "available": true
     },
     {
+      "name": "smartphone",
+      "price": "5000",
+      "quantity": "20",
+      "available": "false",
       "id": 3,
-      "name": "smatphone",
-      "price": 1200,
-      "quantity": 100,
-      "selected": true,
-      "available": true
+      "selected": true
+    },
+    {
+      "name": "tv",
+      "price": "6000",
+      "quantity": "60",
+      "available": "true",
+      "id": 4
     }
   ]
 }
