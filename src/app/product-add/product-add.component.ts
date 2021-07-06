@@ -10,6 +10,7 @@ import { ProductsService } from '../services/products.service';
 export class ProductAddComponent implements OnInit {
 
   productFormGroup?:FormGroup;
+  submitted:boolean = false;
   
 
   constructor(private fb: FormBuilder, private productService:ProductsService) { }
@@ -27,7 +28,12 @@ export class ProductAddComponent implements OnInit {
   }
 
   onSaveProduct() {
+    this.submitted=true;
+    if(this.productFormGroup?.invalid) return;
     this.productService.saveProduct(this.productFormGroup?.value)
+    .subscribe(data => {
+      alert("Success Saving Product")
+    });
   }
 
 }
