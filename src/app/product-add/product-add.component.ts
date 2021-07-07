@@ -27,6 +27,7 @@ export class ProductAddComponent implements OnInit {
    console.log(this.productFormGroup.value)
   }
 
+  /*
   onSaveProduct() {
     this.submitted=true;
     if(this.productFormGroup?.invalid) return;
@@ -35,5 +36,6 @@ export class ProductAddComponent implements OnInit {
       alert("Success Saving Product")
     });
   }
+  */
 
 }
