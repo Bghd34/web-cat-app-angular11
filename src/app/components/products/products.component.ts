@@ -81,12 +81,12 @@ export class ProductsComponent implements OnInit {
 
     /*
     onNewProduct() {
-      this.router.navigateByUrl("newProduct");
+      this.router.navigateByUrl("/newProduct");
     }
     */
 
-    onEditProduct(p:any) {
-
+    onEditProduct(p:Product) {
+      this.router.navigateByUrl("/editProduct/"+p.id);
     }
     
   
